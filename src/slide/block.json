@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 2,
+  "name": "bento/slide",
+  "version": "0.1.0",
+  "title": "Bento Carousel Slide",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block written with ESNext standard and JSX support – build step required.",
+  "supports": {
+	"html": false
+  },
+  "parent": [
+	"bento/carousel"
+  ],
+  "textdomain": "bento-carousel",
+  "editorScript": "file:./../../build/slide.js",
+  "editorStyle": "file:./../../build/slide.css",
+  "style": "file:./../../build/style-slide.css"
+}
