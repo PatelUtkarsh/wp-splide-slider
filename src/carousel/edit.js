@@ -13,6 +13,7 @@ import '@bentoproject/base-carousel/styles.css';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
+import { useState } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -21,7 +22,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-
+import {useEffect} from "react";
+import {defineElement as defineBentoBaseCarousel} from '@bentoproject/base-carousel';
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -31,9 +33,17 @@ import './editor.scss';
  * @return {WPElement|JSX.Element} Element to render.
  */
 export default function Edit() {
+//	const [loading, setLoading] = useState(true);
+//	useEffect(()=> {
+//		console.log("loading bento");
+//		if (loading) {
+//			setLoading(false);
+//		}
+//	},[] );
+//	defineBentoBaseCarousel();
 	return (
 		<div {...useBlockProps()}>
-			<div className="bento-carousel-wrapper">
+			{/*<div className="bento-carousel-wrapper">*/}
 				<BentoBaseCarousel autoAdvance={false} loop={false} snap={true}>
 					<img
 						src="https://source.unsplash.com/random/1200x800?1"
@@ -60,7 +70,7 @@ export default function Edit() {
 						alt=""
 					/>
 				</BentoBaseCarousel>
-			</div>
+			{/*</div>*/}
 		</div>
 	);
 }

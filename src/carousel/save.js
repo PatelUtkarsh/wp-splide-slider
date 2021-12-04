@@ -13,7 +13,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import { BentoBaseCarousel } from "@bentoproject/base-carousel/react";
+//import { BentoBaseCarousel } from "@bentoproject/base-carousel/react";
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -27,7 +27,7 @@ export default function Save() {
 	return (
 		<div {...useBlockProps().save()}>
 			<div className="bento-carousel-wrapper">
-				<BentoBaseCarousel autoAdvance={false} loop={false} snap={true}>
+				<bento-base-carousel autoAdvance={false} loop={false} snap={true}>
 					<img
 						src="https://source.unsplash.com/random/1200x800?1"
 						width={1200}
@@ -52,7 +52,7 @@ export default function Save() {
 						height={800}
 						alt=""
 					/>
-				</BentoBaseCarousel>
+				</bento-base-carousel>
 			</div>
 			<div className="bento-carousel-buttons">
 				<button className="bento-carousel-prev">{'Previous'}</button>
