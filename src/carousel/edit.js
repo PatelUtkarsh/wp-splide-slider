@@ -4,6 +4,7 @@ import {
 } from "@wordpress/block-editor";
 //import '@splidejs/splide/dist/css/splide.min.css';
 import "./editor.scss";
+import Settings from "./settings";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -13,13 +14,14 @@ import "./editor.scss";
  *
  * @return {WPElement|JSX.Element} Element to render.
  */
-export default function Edit( {
-	clientId
-} ) {
+export default function Edit( { attributes, setAttributes } ) {
 	const template = [ [ 'bento/slide', {}, [
 		[ 'core/cover', {} ],
 	] ] ];
+	console.log( attributes, 'attr' );
 	return (
+		<>
+		<Settings { ...{ attributes, setAttributes } } />
 		<div {...useBlockProps()}>
 			<div className="splide">
 				<div className="splide__track">
@@ -35,5 +37,6 @@ export default function Edit( {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 }

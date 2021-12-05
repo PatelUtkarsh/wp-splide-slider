@@ -16,5 +16,16 @@
 	  "wide",
 	  "full"
 	]
+  },
+  "attributes": {
+	"type": {
+	  "type": "string",
+	  "default": "slide",
+	  "options": [
+		"slide",
+		"loop",
+		"fade"
+	  ]
+	}
   }
 }
