@@ -14,7 +14,6 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"devDependencies": {
-		"@splidejs/react-splide": "^0.6.17",
 		"@splidejs/splide": "^3.6.9",
 		"@wordpress/block-editor": "^8.0.7",
 		"@wordpress/blocks": "^11.1.4",
