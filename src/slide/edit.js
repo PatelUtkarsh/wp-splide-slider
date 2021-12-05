@@ -1,25 +1,8 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
+import {useBlockProps, InnerBlocks} from '@wordpress/block-editor';
+//import {SplideSlide} from "@splidejs/react-splide";
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 import './editor.scss';
+import classname from "classnames";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -30,9 +13,11 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+	const props = {...useBlockProps()};
+	props.className = classname( props.className, 'splide__slide' );
 	return (
-		<p {...useBlockProps()}>
-			{__('Bento Carousel – hello from the editor!', 'bento-carousel')}
-		</p>
+		<div {...props}>
+			<InnerBlocks allowedBlocks={["core/cover"]}/>
+		</div>
 	);
 }

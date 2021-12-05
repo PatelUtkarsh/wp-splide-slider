@@ -19,7 +19,6 @@ import './style.scss';
  */
 import Edit from './edit';
 import Save from './save';
-
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -34,5 +33,5 @@ registerBlockType('bento/carousel', {
 	/**
 	 * @see ./save.js
 	 */
-	Save,
+	save: Save,
 });

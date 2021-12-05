@@ -1,17 +1,14 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
+	"apiVersion": 1,
 	"name": "bento/carousel",
 	"version": "0.1.0",
 	"title": "Bento Carousel",
-	"category": "widgets",
-	"icon": "smiley",
+	"category": "media",
+	"icon": "slides",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
-	"supports": {
-		"html": false
-	},
 	"textdomain": "bento-carousel",
 	"editorScript": "file:./../../build/carousel.js",
 	"editorStyle": "file:./../../build/carousel.css",
-	"style": "file:./../../build/style-carousel.css"
+  	"viewScript": "file:./../../build/view.js"
 }

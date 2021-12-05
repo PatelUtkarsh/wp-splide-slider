@@ -13,6 +13,7 @@
  * @package           create-block
  */
 
+namespace BentoCarousel;
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -21,8 +22,32 @@
  * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/writing-your-first-block-type/
  */
 function create_block_bento_carousel_block_init() {
-	register_block_type( __DIR__ . '/src/carousel' );
+	register_block_type( __DIR__ . '/src/carousel', [
+		'render_callback' => function ( $_attr, $content ) {
+			wp_enqueue_script( 'bento-frontend' );
+			wp_enqueue_style( 'bento-frontend-style' );
+
+			return $content;
+		},
+	] );
 	register_block_type( __DIR__ . '/src/slide' );
 }
 
-add_action( 'init', 'create_block_bento_carousel_block_init' );
+function register_scripts() {
+	$js_file       = __DIR__ . '/build/view.asset.php';
+	$script_params = [];
+	if ( ! file_exists( $js_file ) ) {
+		$script_params = include $js_file;
+	}
+	wp_register_script( 'bento-frontend', plugins_url( 'build/view.js', __FILE__ ), $script_params['dependencies'], $script_params['version'] );
+
+	$style_file   = __DIR__ . '/build/view.scss.asset.php';
+	$style_params = [];
+	if ( ! file_exists( $style_file ) ) {
+		$style_params = include $style_file;
+	}
+	wp_register_style( 'bento-frontend-style', plugins_url( 'build/view.scss.css', __FILE__ ), $style_params['dependencies'], $style_params['version'] );
+}
+
+add_action( 'init', __NAMESPACE__ . '\\create_block_bento_carousel_block_init' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\register_scripts' );

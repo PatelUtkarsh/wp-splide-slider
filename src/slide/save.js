@@ -1,18 +1,5 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
-// import { defineElement as defineBentoBaseCarousel } from '@bentoproject/base-carousel';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import classname from "classnames";
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -23,12 +10,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save() {
+	const blockProps = useBlockProps.save();
+	blockProps.className = classname( blockProps.className, 'splide__slide' );
 	return (
-		<p {...useBlockProps.save()}>
-			{__(
-				'Bento Carousel – hello from the saved content!',
-				'bento-carousel'
-			)}
-		</p>
+		<li {...blockProps}>
+			<InnerBlocks.Content />
+		</li>
 	);
 }
