@@ -28,7 +28,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						<InnerBlocks
 							orientation="horizontal"
 							allowedBlocks={["splide/slide"]}
-							renderAppender={false}
+							renderAppender={InnerBlocks?.ButtonBlockAppender}
 							template={template}
 						/>
 					</div>

@@ -17,7 +17,7 @@ export default function Edit() {
 	props.className = classname( props.className, 'splide__slide' );
 	return (
 		<div {...props}>
-			<InnerBlocks template={[["core/cover"]]} allowedBlocks={["core/cover"]} renderAppender={ InnerBlocks.ButtonBlockAppender } />
+			<InnerBlocks template={[["core/cover"]]} allowedBlocks={["core/cover"]} renderAppender={ false } />
 		</div>
 	);
 }
