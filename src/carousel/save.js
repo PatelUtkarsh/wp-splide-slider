@@ -12,18 +12,23 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * be combined into the final markup, which is then serialized by the block
  * editor into `post_content`.
  *
- * @param {Object} props                 - Props.
- * @param {Object} props.attributes      - The attributes of the block.
- * @param {string} props.attributes.type - The type of carousel.
+ * @param {Object}  props                      - Props.
+ * @param {Object}  props.attributes           - The attributes of the block.
+ * @param {string}  props.attributes.type      - The type of carousel.
+ * @param {string}  props.attributes.direction - The direction of carousel.
+ * @param {number}  props.attributes.perPage
+ * @param {string}  props.attributes.width
+ * @param {boolean} props.attributes.rewind
+ * @param {number}  props.attributes.speed
+ * @param {boolean} props.attributes.wheel
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
  * @return {WPElement} Element to render.
  */
-export default function Save({ attributes: { type, direction, perPage, width} }) {
+export default function Save({
+	attributes: { type, direction, perPage, width, rewind, speed, wheel },
+}) {
 	const blockProps = useBlockProps.save();
-	const rewind = false;
-	const speed = 1000;
-	const wheel = true;
 	const releaseWheel = true;
 	const waitForTransition = true;
 	const heightRatio = '0.3';
@@ -41,7 +46,7 @@ export default function Save({ attributes: { type, direction, perPage, width} })
 					waitForTransition,
 					direction,
 					heightRatio,
-					width
+					width,
 				})}
 			>
 				<div className="splide__track">

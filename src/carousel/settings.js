@@ -1,20 +1,22 @@
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, __experimentalNumberControl as NumberControl, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	__experimentalNumberControl as NumberControl,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import { useCallback } from '@wordpress/element';
+import genericAttributesSetter from './../generic-attributes-setter';
 
-export default function Settings({ attributes: { type, direction, perPage, width }, setAttributes }) {
-	const onChangeType = (t) => {
-		setAttributes({ type: t });
-	};
-	const onChangeDir = (d) => {
-		setAttributes({ direction: d });
-	};
-	const onChangePerPage = (d) => {
-		setAttributes({ perPage: d });
-	};
-	const onChangeWidth = (d) => {
-		setAttributes({ width: d });
-	};
+export default function Settings({
+	attributes: { type, direction, perPage, width, rewind, speed, wheel },
+	setAttributes,
+}) {
+	const setter = useCallback(genericAttributesSetter(setAttributes), [
+		setAttributes,
+	]);
 	return (
 		<InspectorControls>
 			<PanelBody title={__('Settings')}>
@@ -26,7 +28,7 @@ export default function Settings({ attributes: { type, direction, perPage, width
 						{ value: 'loop', label: 'Loop' },
 						{ value: 'fade', label: 'Fade' },
 					]}
-					onChange={onChangeType}
+					onChange={setter('type')}
 				/>
 				<SelectControl
 					label="Direction"
@@ -36,21 +38,44 @@ export default function Settings({ attributes: { type, direction, perPage, width
 						{ value: 'rtl', label: 'Right to Left' },
 						{ value: 'ttb', label: 'Top to bottom' },
 					]}
-					onChange={onChangeDir}
+					onChange={setter('direction')}
 				/>
 				<NumberControl
 					label="Per Page"
-					isShiftStepEnabled={ true }
-					onChange={ onChangePerPage }
-					shiftStep={ 1 }
-					max={ 5 }
-					value={ perPage }
+					isShiftStepEnabled={true}
+					onChange={setter('perPage')}
+					shiftStep={1}
+					max={5}
+					value={perPage}
 				/>
 				<TextControl
 					label="Width"
 					help="Allows CSS values. Example: 100%"
-					value={ width }
-					onChange={ onChangeWidth }
+					value={width}
+					onChange={setter('width')}
+				/>
+				<ToggleControl
+					label="Rewind"
+					help={
+						'Rewind to the first item after the last item is reached.'
+					}
+					checked={rewind}
+					onChange={setter('rewind')}
+				/>
+				<NumberControl
+					label="Speed"
+					help="The transition speed in milliseconds."
+					isShiftStepEnabled={true}
+					onChange={setter('speed')}
+					shiftStep={1000}
+					max={10000}
+					value={speed}
+				/>
+				<ToggleControl
+					label="Wheel"
+					help={'Enables navigation by the mouse wheel.'}
+					checked={wheel}
+					onChange={setter('wheel')}
 				/>
 			</PanelBody>
 		</InspectorControls>

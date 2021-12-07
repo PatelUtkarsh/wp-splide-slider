@@ -43,6 +43,18 @@
 	"width": {
 	  "type": "string",
 	  "default": "100%"
+	},
+	"rewind": {
+	  "type": "boolean",
+	  "default": false
+	},
+	"speed": {
+	  "type": "number",
+	  "default": 1000
+	},
+	"wheel": {
+	  "type": "boolean",
+	  "default": false
 	}
   }
 }
