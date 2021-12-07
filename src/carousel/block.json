@@ -26,6 +26,23 @@
 		"loop",
 		"fade"
 	  ]
+	},
+	"direction": {
+	  "type": "string",
+	  "default": "ltr",
+	  "options": [
+		"ltr",
+		"rtl",
+		"ttb"
+	  ]
+	},
+	"perPage": {
+	  "type": "number",
+	  "default": 1
+	},
+	"width": {
+	  "type": "string",
+	  "default": "100%"
 	}
   }
 }
