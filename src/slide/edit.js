@@ -1,8 +1,8 @@
-import {useBlockProps, InnerBlocks} from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 //import {SplideSlide} from "@splidejs/react-splide";
 
 import './editor.scss';
-import classname from "classnames";
+import classname from 'classnames';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -13,11 +13,15 @@ import classname from "classnames";
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
-	const props = {...useBlockProps()};
-	props.className = classname( props.className, 'splide__slide' );
+	const props = { ...useBlockProps() };
+	props.className = classname(props.className, 'splide__slide');
 	return (
 		<div {...props}>
-			<InnerBlocks template={[["core/cover"]]} allowedBlocks={["core/cover"]} renderAppender={ false } />
+			<InnerBlocks
+				template={[['core/cover']]}
+				allowedBlocks={['core/cover']}
+				renderAppender={false}
+			/>
 		</div>
 	);
 }

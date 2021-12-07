@@ -1,5 +1,5 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-import classname from "classnames";
+import classname from 'classnames';
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -11,7 +11,7 @@ import classname from "classnames";
  */
 export default function save() {
 	const blockProps = useBlockProps.save();
-	blockProps.className = classname( blockProps.className, 'splide__slide' );
+	blockProps.className = classname(blockProps.className, 'splide__slide');
 	return (
 		<li {...blockProps}>
 			<InnerBlocks.Content />
