@@ -24,7 +24,7 @@ import Save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('bento/carousel', {
+registerBlockType('splide/carousel', {
 	/**
 	 * @see ./edit.js
 	 */

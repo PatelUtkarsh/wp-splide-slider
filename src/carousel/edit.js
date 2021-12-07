@@ -15,10 +15,9 @@ import Settings from "./settings";
  * @return {WPElement|JSX.Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const template = [ [ 'bento/slide', {}, [
-		[ 'core/cover', {} ],
+	const template = [ [ 'splide/slide', {}, [
+		[ 'core/cover' ],
 	] ] ];
-	console.log( attributes, 'attr' );
 	return (
 		<>
 		<Settings { ...{ attributes, setAttributes } } />
@@ -28,9 +27,8 @@ export default function Edit( { attributes, setAttributes } ) {
 					<div className="splide__list">
 						<InnerBlocks
 							orientation="horizontal"
-							allowedBlocks={["bento/slide"]}
-//							templateInsertUpdatesSelection={true}
-							renderAppender={InnerBlocks?.ButtonBlockAppender}
+							allowedBlocks={["splide/slide"]}
+							renderAppender={false}
 							template={template}
 						/>
 					</div>

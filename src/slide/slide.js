@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('bento/slide', {
+registerBlockType('splide/slide', {
 	/**
 	 * @see ./edit.js
 	 */
