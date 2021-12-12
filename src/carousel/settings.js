@@ -11,7 +11,7 @@ import { useCallback } from '@wordpress/element';
 import genericAttributesSetter from './../generic-attributes-setter';
 
 export default function Settings({
-	attributes: { type, direction, perPage, width, rewind, speed, wheel },
+	attributes: { type, direction, perPage, width, rewind, speed, wheel, autoWidth, heightRatio },
 	setAttributes,
 }) {
 	const setter = useCallback(genericAttributesSetter(setAttributes), [
@@ -76,6 +76,23 @@ export default function Settings({
 					help={'Enables navigation by the mouse wheel.'}
 					checked={wheel}
 					onChange={setter('wheel')}
+				/>
+				<ToggleControl
+					label="Auto Width"
+					help={
+						'Allows slides / cover to have their own width.'
+					}
+					checked={ autoWidth }
+					onChange={setter('autoWidth')}
+				/>
+				<NumberControl
+					label="Height Ratio"
+					help="Determines height of slides by the ratio to the slider width."
+					isShiftStepEnabled={true}
+					onChange={setter('heightRatio')}
+					shiftStep={0.1}
+					max={1}
+					value={heightRatio}
 				/>
 			</PanelBody>
 		</InspectorControls>

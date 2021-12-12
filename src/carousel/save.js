@@ -26,12 +26,11 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function Save({
-	attributes: { type, direction, perPage, width, rewind, speed, wheel },
+	attributes: { type, direction, perPage, width, rewind, speed, wheel, autoWidth, heightRatio },
 }) {
 	const blockProps = useBlockProps.save();
 	const releaseWheel = true;
 	const waitForTransition = true;
-	const heightRatio = '0.3';
 	return (
 		<div {...blockProps}>
 			<div
@@ -47,6 +46,7 @@ export default function Save({
 					direction,
 					heightRatio,
 					width,
+					autoWidth,
 				})}
 			>
 				<div className="splide__track">

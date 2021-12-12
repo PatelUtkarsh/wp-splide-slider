@@ -55,6 +55,14 @@
 	"wheel": {
 	  "type": "boolean",
 	  "default": false
+	},
+	"autoWidth": {
+	  "type": "boolean",
+	  "default": false
+	},
+	"heightRatio": {
+	  "type": "number",
+	  "default": 0
 	}
   }
 }
