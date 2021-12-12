@@ -11,7 +11,17 @@ import { useCallback } from '@wordpress/element';
 import genericAttributesSetter from './../generic-attributes-setter';
 
 export default function Settings({
-	attributes: { type, direction, perPage, width, rewind, speed, wheel, autoWidth, heightRatio },
+	attributes: {
+		type,
+		direction,
+		perPage,
+		width,
+		rewind,
+		speed,
+		wheel,
+		autoWidth,
+		heightRatio,
+	},
 	setAttributes,
 }) {
 	const setter = useCallback(genericAttributesSetter(setAttributes), [
@@ -79,10 +89,8 @@ export default function Settings({
 				/>
 				<ToggleControl
 					label="Auto Width"
-					help={
-						'Allows slides / cover to have their own width.'
-					}
-					checked={ autoWidth }
+					help={'Allows slides / cover to have their own width.'}
+					checked={autoWidth}
 					onChange={setter('autoWidth')}
 				/>
 				<NumberControl
