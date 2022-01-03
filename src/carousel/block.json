@@ -3,7 +3,7 @@
   "apiVersion": 1,
   "name": "splide/carousel",
   "version": "0.1.0",
-  "title": "splide Carousel",
+  "title": "Splide Carousel",
   "category": "media",
   "icon": "slides",
   "description": "Example block written with ESNext standard and JSX support – build step required.",
