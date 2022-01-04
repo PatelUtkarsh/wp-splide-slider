@@ -3,10 +3,10 @@
   "apiVersion": 2,
   "name": "splide/slide",
   "version": "0.1.0",
-  "title": "splide Carousel Slide",
+  "title": "Splide Carousel Slide",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Example block written with ESNext standard and JSX support – build step required.",
+  "description": "Slide block goes inside the carousel block.",
   "supports": {
 	"html": false
   },

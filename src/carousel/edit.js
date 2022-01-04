@@ -1,5 +1,4 @@
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-//import '@splidejs/splide/dist/css/splide.min.css';
 import './editor.scss';
 import Settings from './settings';
 

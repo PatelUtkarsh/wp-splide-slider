@@ -1,5 +1,4 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-//import {SplideSlide} from "@splidejs/react-splide";
 
 import './editor.scss';
 import classname from 'classnames';
